@@ -1,6 +1,6 @@
 'use strict';
 (function(){
-var input = document.querySelector('#search-input');
+const input = document.querySelector('#search-input');
 input.addEventListener('onkeyup',function(event){
 //Enter key to search
   if(event.keyCode== 13) {
@@ -8,7 +8,8 @@ input.addEventListener('onkeyup',function(event){
   }
 });
 
-var search = function(query){
+
+const search = function(query,language){
   //performing search query.
 }
 
