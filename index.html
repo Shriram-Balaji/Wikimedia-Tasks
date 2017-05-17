@@ -1,18 +1,16 @@
 <html>
   <head>
     <meta name="viewport"  http-equiv="Content-Type" content="text/html; charset=utf-8" content="width=device-width,initial-scale=1.0">
-
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
 
+<header class="header clearfix">
+  <button type="button" id="toggleMenu" class="toggle-menu">
+  </button>
+  <img src="img/wikipedia-logo.png" class="header-logo"/>
+</header>
 
-  <header class="header clearfix">
-      <button type="button" id="toggleMenu" class="toggle-menu">
-        <i class="fa fa-bars"></i>
-      </button>
-      <img src="img/wikipedia-logo.png" class="header-logo"/>
-      </header>
 
 
 <nav class="sidebar">
@@ -24,7 +22,7 @@
   </li>
 
   <li class="menu-item">
-    <label for="language-select" id="lang-label">Select Your Language</label>
+    <label for="language-select" id="lang-label">Please Select Your Language</label>
     <select class="language-select" id="language-list" name="Languages">
       <option value="en">English</option>
       <option value="ch">中文</option>
@@ -43,6 +41,9 @@
 </nav>
 
 <div class="wrapper">
+<div class="loading-progressbar">
+  <img src="img/loading.gif" alt="">
+</div>
   <div class="error-404">
     <img src="../img/404-ERROR.png" class="img-responsive" alt="">
   </div>

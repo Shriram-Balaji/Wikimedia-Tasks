@@ -10,8 +10,8 @@ var tid = setInterval( function () {
   var menu = document.getElementById("menu-list");
 
   // Toggle menu click
-  querySelector('.toggle_menu').onclick = function () {
-    nav.classList.toggle('sidebar__opened');
+  querySelector('.toggle-menu').onclick = function () {
+    nav.classList.toggle('sidebar--opened');
     wrapper.classList.toggle('toggle-content');
   };
 
