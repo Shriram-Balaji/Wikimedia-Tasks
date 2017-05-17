@@ -1,6 +1,5 @@
 'use strict';
 
-
 var tid = setInterval( function () {
   if ( document.readyState !== 'complete' ) return;
   clearInterval( tid );
