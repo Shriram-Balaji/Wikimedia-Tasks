@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/styles.css">
   </head>
-  <body>
-
+<body>
+<!--Fixed Header Top-->
 <header class="header clearfix">
   <button type="button" id="toggleMenu" class="toggle-menu">
   </button>
@@ -13,57 +13,55 @@
 </header>
 
 
-
+<!--Sidebar Menu-->
 <nav class="sidebar">
-<ul id="menu-list" class="menu">
-  <li class="menu-item">
-    <input type="text" class="search-input-container" id="search-input" placeholder="Search for Wiki Articles here">
-  </li>
+  <ul id="menu-list" class="menu">
+    <li class="menu-item">
+      <input type="text" class="search-input-container" id="search-input" placeholder="Search for Wiki Articles here">
+    </li>
 
-  <p id="error-message"></p>
+    <p id="error-message"></p>
 
-  <li class="menu-item">
-    <label for="language-select" id="lang-label">Please Select Your Language</label>
-    <select class="language-select" id="language-list" name="Languages">
-      <option value="en">English</option>
-      <option value="ch">中文</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
-      <option value="sv">Svenska</option>
-      <option value="nl">Nederlands</option>
-      <option value="ar">عربى</option>
-      <option value="hi">हिन्दी</option>
-      <option value="ta">தமிழ்</option>
-      <option value="ml">മലയാളം</option>
-      <option value="ja">日本語</option>
-    </select>
-  </li>
+    <li class="menu-item">
+      <label for="language-select" id="lang-label">Please Select Your Language</label>
+      <select class="language-select" id="language-list" name="Languages">
+        <option value="en">English</option>
+        <option value="ch">中文</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="sv">Svenska</option>
+        <option value="nl">Nederlands</option>
+        <option value="ar">عربى</option>
+        <option value="hi">हिन्दी</option>
+        <option value="ta">தமிழ்</option>
+        <option value="ml">മലയാളം</option>
+        <option value="ja">日本語</option>
+      </select>
+    </li>
 
-  <li class="menu-item">
-    <button class="search-button btn-blue" id="btn-search">Search</button>
-  </li>
-</ul>
+    <li class="menu-item">
+      <button class="search-button btn-blue" id="btn-search">Search</button>
+    </li>
+  </ul>
 </nav>
 
+<!--Main Content Wrapper-->
 <div class="wrapper">
-<div class="loading-progressbar">
-  <img src="img/loading.gif" alt="">
-</div>
+  <div class="loading-progressbar">
+    <img src="img/loading.gif" alt="">
+  </div>
+  <!--Not Found Error Message-->
   <div class="error-404">
     <img src="../img/error404-not-found.png" class="img-responsive" alt="">
   </div>
 
-<h1 class="article-title" id="docTitle"></h1>
-  <div class="error-not-found">
-  </div>
-  <section id="content">
-  </section>
+  <h1 class="article-title" id="docTitle"></h1>
+  <!--Page Content-->
+  <section id="content"></section>
 </div>
 
-
-
-    <script async src="scripts/wikimedia.menu.js" charset="utf-8"></script>
-    <script async src="scripts/wikimedia.search.js" charset="utf-8"></script>
+<script async src="scripts/wikimedia.menu.js" charset="utf-8"></script>
+<script async src="scripts/wikimedia.search.js" charset="utf-8"></script>
 
   </body>
 </html>

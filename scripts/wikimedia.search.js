@@ -8,23 +8,28 @@ let options = {
    language : language_list.options[0].value
 }
 
-
-//Language List
+//Set Current Chosen Language
 language_list.addEventListener('change',function(event){
  options.language = language_list.options[language_list.selectedIndex].value;
 });
 
 
-
+//clear contents of page
+let clear = function(){
+  const docContent = document.querySelector('#content');
+  const docTitle = document.querySelector('#docTitle');
+  docContent.innerHTML = "";
+  docTitle.innerHTML = "";
+}
 
 //Search Function
 const search = function(input){
   let contentUrl = "https://"+options.language+".wikipedia.org/w/api.php?origin=*&action=query&prop=extracts&format=json&titles="+input;
-//ajax request
 
   let loading_progress_bar = document.querySelector(".loading-progressbar");
   loading_progress_bar.style.display = "block";
 
+  //AJAX Request
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -38,21 +43,14 @@ const search = function(input){
     xhttp.send();
 }
 
-let clear = function(){
-  const docContent = document.querySelector('#content');
-  const docTitle = document.querySelector('#docTitle');
-  docContent.innerHTML = "";
-  docTitle.innerHTML = "";
-}
-
 //Parsing the response Data
 const parseData = function(data){
   const docContent = document.querySelector('#content');
   const docTitle = document.querySelector('#docTitle');
   let parsedData = JSON.parse(data);
   var error_image = document.querySelector('.error-404');
-
   clear();
+
 //if page not found or is empty
   if(parsedData.query.pages["-1"]!==undefined || parsedData.query.pages[Object.keys(parsedData.query.pages)].extract.length<=0){
     error_image.style.display = "block";
@@ -69,15 +67,12 @@ const parseData = function(data){
 }
 
 
-//send-Query
+//Invoke Search and Error Handling
 const sendQuery = function (initial){
-
-
   if(initial == true){
     let defaultQuery = "Wikipedia";
     search(defaultQuery);
     }
-
   else {
       let query = document.querySelector('#search-input').value;
       if(query.length>0)
@@ -85,6 +80,7 @@ const sendQuery = function (initial){
           search(query);
         }
       else {
+        //handling empty input
         var error_message = document.querySelector('#error-message');
         error_message.innerHTML = "Search Query cannot be Empty!"
         error_message.style.display="block";
@@ -98,7 +94,7 @@ const sendQuery = function (initial){
         }
 }
 
-//Submit btn
+//Submit button action
 const submit = document.querySelector('#btn-search');
 submit.addEventListener('click',function(){
   sendQuery(false);
@@ -112,7 +108,7 @@ if(event.keyCode == 13) {
 }
 });
 
-//initially searched with about wikipedia
+//Initial Search when page Empty
 sendQuery(true);
 
 })();
